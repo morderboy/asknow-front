@@ -1,0 +1,36 @@
+body {
+    background-color: #222831; 
+}
+
+.custom-navbar {
+    background-color: #222831;  
+    padding: 1rem 0;            
+}
+
+.navbar-brand {
+    color: #D4CCB6 !important; 
+}
+
+.text-custom {
+    color: #D4CCB6 !important;  
+    text-transform: uppercase; 
+}
+
+.nav {
+    gap: 2.5rem;                
+}
+
+.nav-link {
+    padding: 0 1rem;            
+}
+
+.nav-link:hover {
+    color: #ffffff !important;  
+}
+
+.glow-effect:hover {
+    text-shadow: 
+        0 0 20px rgba(212, 204, 182, 0.8),   
+        0 4px 4px rgba(0, 0, 0, 0.25); 
+    color: #D4CCB6 !important;
+}
