@@ -34,3 +34,124 @@ body {
         0 4px 4px rgba(0, 0, 0, 0.25); 
     color: #D4CCB6 !important;
 }
+
+.heading {
+    font-weight: bold;
+    font-size: 5rem;
+    line-height: 1.0;
+    text-transform: uppercase;
+    color: #D4CCB6;
+    text-shadow: 
+        0 4px 4px rgba(0, 173, 181, 0.6);
+    display: inline-block;  
+    letter-spacing: 6px; 
+}
+
+.step-row {
+    text-align: left;       
+    margin-bottom: 15px;     
+}
+
+.step-indent {
+    padding-left: 200px;   
+}
+
+.step-indent-large {
+    padding-left: 360px;     
+}
+
+.red-letter {
+    color: #E5533D; 
+    text-shadow: 
+        0 0 20px rgba(231, 76, 60, 0.8),  
+        0 4px 4px rgba(0, 173, 181, 0.3);
+}
+
+
+.subtext {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+
+.btn-glow {
+    background-color: #D4CCB6;
+    color: #222831;
+    border: none;
+    padding: 10px 30px;
+    box-shadow: 0 0 15px rgba(212, 204, 182, 0.8); 
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-glow:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 25px rgba(212, 204, 182, 1);  
+    transform: scale(1.05);  
+}
+
+.subtext {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #D4CCB6;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.6); 
+    margin-bottom: 50px;  
+}
+
+.new-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #D4CCB6;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.6); 
+    margin-top: 50px;  
+}
+
+.glow-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.glow-line {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 173, 181, 0.8);
+    box-shadow: 0 0 200px rgba(0, 173, 181, 0.6);  
+    margin-top: 40px;
+}
+
+.btn-glow {
+    background-color: #D4CCB6;
+    color: #222831;
+    border: none;
+    padding: 15px 130px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin-top: 40px;
+    font-size: 1.2rem;
+
+    box-shadow: 
+        0 0 60px #00ADB5,  
+        0 0 80px rgba(0, 173, 181, 0.8),
+        0 0 150px rgba(0, 173, 181, 0.6); 
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-glow:hover {
+    background-color: #D4CCB6;  
+    box-shadow: 
+        0 0 100px rgba(0, 173, 181, 1),   
+        0 0 250px rgba(0, 173, 181, 0.9),
+        0 0 300px rgba(0, 173, 181, 0.8);  
+    transform: scale(1.15);
+    font-size: 1.2rem; 
+}
+
+.btn-glow {
+    font-weight: 600; 
+}
+
+.btn-glow:hover {
+    font-weight: 600;  
+}
+
