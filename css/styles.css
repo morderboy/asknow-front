@@ -118,12 +118,12 @@ body {
     background-color: #D4CCB6;
     color: #222831;
     border: none;
-    padding: 15px 130px;
-    font-weight: bold;
+    padding: 10px 130px;
+
     border-radius: 2px;
     margin-top: 40px;
     font-size: 1.2rem;
-
+    
     box-shadow: 
         0 0 60px #00ADB5,  
         0 0 80px rgba(0, 173, 181, 0.8),
@@ -132,13 +132,14 @@ body {
 }
 
 .btn-glow:hover {
+    font-size: 1.2rem;
     background-color: #D4CCB6;  
     box-shadow: 
         0 0 100px rgba(0, 173, 181, 1),   
         0 0 250px rgba(0, 173, 181, 0.9),
         0 0 300px rgba(0, 173, 181, 0.8);  
-    transform: scale(1.15);
-    font-size: 1.2rem; 
+    transform: scale(1.05);
+   
 }
 
 .btn-glow {
@@ -168,7 +169,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 173, 181, 1);
     border-radius: 50px;
 
-    animation: expand-line 10s ease-in-out infinite;
+    animation: expand-line 15s ease-in-out infinite;
 }
 
 @keyframes expand-line {
@@ -195,7 +196,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 173, 181, 1); 
     opacity: 0; 
     
-    animation: glow-circles 10s ease-in-out infinite;
+    animation: glow-circles 15s ease-in-out infinite;
 }
 
 
@@ -220,4 +221,169 @@ body {
     56%, 100% {
         opacity: 0; 
     }
+}
+
+
+.new-text-content {
+    font-size: 1.3rem;        
+    text-transform: uppercase; 
+    color: #D4CCB6;          
+    text-align: center;        
+    margin-top: 5%;         
+    margin-bottom: 5%;       
+
+    letter-spacing: 2px;      
+}
+
+
+.content-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  
+    grid-template-rows: auto auto;         
+    grid-gap: 80px 150px;              
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: #D4CCB6;
+    border-radius: 8px;
+    box-shadow: 0 4px 41px rgba(0, 0, 0, 1);
+    text-align: center;
+    padding: 10px;
+    width: 310px; 
+    height: 300px; 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 60px rgba(212, 204, 182, 0.4);
+}
+
+.card:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.card:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.card:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.card:nth-child(4) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.card:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 60px rgba(212, 204, 182, 0.8);
+}
+
+.card img {
+    max-width: 180px;          
+    max-height: 180px;
+    margin-bottom: 0;       
+    margin-top: -5px;        
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card h3 {
+    font-size: 1.2rem; 
+    color: #222831;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #222831;
+    line-height: 1.5;
+}
+
+
+.content-block {
+    display: flex;             
+    flex-wrap: wrap;           
+    justify-content: center;  
+    gap: 45px;                 
+}
+
+
+
+.referral-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-top: 10%;
+}
+
+.referral-box {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 90%;
+    padding: 40px;
+    position: relative;
+    gap: 300px;  
+    z-index: 2;
+}
+
+.referral-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.referral-right {
+    display: flex;
+    justify-content: flex-start;  
+    align-items: center;
+}
+
+.referral-content {
+    color: #D4CCB6;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 500px;
+    text-align: left; 
+    padding: 30px;
+}
+
+.referral-glow {
+    position: absolute;
+    top: -10%;  
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 173, 181, 0.6) 0%, rgba(0, 173, 181, 0) 70%);
+    filter: blur(150px);
+    z-index: 0; 
+}
+
+.referral-title {
+    position: absolute;
+    top: -70px;  
+    left: 0;
+    color: #D4CCB6;
+    z-index: 2;  
+    font-size: 1.3rem;        
+    text-transform: uppercase; 
+    text-align: center;             
+    margin-bottom: 70%;    
+
+    letter-spacing: 2px;   
 }
