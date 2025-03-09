@@ -30,7 +30,7 @@ body {
 
 .glow-effect:hover {
     text-shadow: 
-        0 0 20px rgba(212, 204, 182, 0.8),   
+        0 0 20px rgba(212, 204, 182, 0.9),   
         0 4px 4px rgba(0, 0, 0, 0.25); 
     color: #D4CCB6 !important;
 }
@@ -98,7 +98,7 @@ body {
 }
 
 .new-text {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #D4CCB6;
@@ -112,13 +112,7 @@ body {
 }
 
 
-.glow-line {
-    width: 100%;
-    height: 2px;
-    background-color: rgba(0, 173, 181, 0.8);
-    box-shadow: 0 0 200px rgba(0, 173, 181, 0.6);  
-    margin-top: 40px;
-}
+
 
 .btn-glow {
     background-color: #D4CCB6;
@@ -155,3 +149,75 @@ body {
     font-weight: 600;  
 }
 
+
+.line-container {
+    margin-top: 60px;
+    position: relative;
+    width: 100%;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line {
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #D4CCB6;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 1);
+    border-radius: 50px;
+
+    animation: expand-line 10s ease-in-out infinite;
+}
+
+@keyframes expand-line {
+    0% {
+        width: 0;
+    }
+    45% {
+        width: 100%;
+    }
+    55% {
+        width: 100%;  
+    }
+    100% {
+        width: 0;
+    }
+}
+
+.circle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #D4CCB6;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 1); 
+    opacity: 0; 
+    
+    animation: glow-circles 10s ease-in-out infinite;
+}
+
+
+.left-circle {
+    left: 0;
+    transform: translateX(-50%);
+}
+
+.right-circle {
+    right: 0;
+    transform: translateX(50%);
+}
+
+
+@keyframes glow-circles {
+    0%, 44% {
+        opacity: 0;  
+    }
+    45%, 55% {
+        opacity: 1; 
+    }
+    56%, 100% {
+        opacity: 0; 
+    }
+}
