@@ -329,6 +329,7 @@ body {
     width: 100%;
     position: relative;
     margin-top: 10%;
+    margin-bottom: 9%;
 }
 
 .referral-box {
@@ -372,6 +373,7 @@ body {
     background: radial-gradient(circle, rgba(0, 173, 181, 0.6) 0%, rgba(0, 173, 181, 0) 70%);
     filter: blur(150px);
     z-index: 0; 
+    margin-bottom: 70%;  
 }
 
 .referral-title {
@@ -384,6 +386,41 @@ body {
     text-transform: uppercase; 
     text-align: center;             
     margin-bottom: 70%;    
-
     letter-spacing: 2px;   
+}
+
+
+.footer {
+    background-color: #222831; 
+    color: #D4CCB6;           
+    text-align: center;       
+    padding: 20px 0;            
+    margin-top: 2%;         
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;    
+    gap: 5.5rem;                
+    margin-bottom: 15px;       
+    font-size: 0.9rem;          
+}
+
+.footer-links a {
+    color: #D4CCB6;             
+    text-decoration: none;      
+    text-transform: uppercase; 
+}
+
+.footer-links a:hover {
+    color: #D4CCB6;            
+    text-shadow: 0 0 15px rgba(212, 204, 182, 0.9);
+}
+
+.footer-copyright {
+    margin-top: 9%;
+    margin-bottom: 1%;
+    color: #E16351;             
+    font-size: 0.8rem;          
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
 }
