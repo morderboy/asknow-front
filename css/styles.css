@@ -383,7 +383,6 @@ body {
 
 .referral-title {
     position: absolute;
-    top: -70px;  
     left: 0;
     color: #D4CCB6;
     z-index: 2;  
@@ -394,20 +393,19 @@ body {
     letter-spacing: 2px;   
 }
 
-
 .footer {
-    background-color: #222831; 
-    color: #D4CCB6;           
-    text-align: center;       
-    padding: 20px 0;            
-    margin-top: 2%;         
+    background-color: #222831;
+    color: #D4CCB6;             
+    text-align: center;        
+    padding: 20px 0;           
+    margin-top: 40px;          
 }
 
 .footer-links {
     display: flex;
     justify-content: center;    
-    gap: 5 .5rem;                
-    margin-bottom: 15px;       
+    gap: 5.5rem;              
+    margin-bottom: 15px;        
     font-size: 0.9rem;          
 }
 
@@ -418,123 +416,351 @@ body {
 }
 
 .footer-links a:hover {
-    color: #D4CCB6;            
+    color: #D4CCB6;           
     text-shadow: 0 0 15px rgba(212, 204, 182, 0.9);
 }
 
 .footer-copyright {
-    margin-top: 9%;
-    margin-bottom: 1%;
-    color: #E16351;             
-    font-size: 0.8rem;          
+    color: #E5533D;             
+    font-size: 0.8rem;      
+    margin-top: 10%;
     text-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
 }
 
-.navbar {
+.nav-menu-desktop {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 15px 20px;
-    background: transparent;
-    color: #D4CCB6;
+    gap: 4.5rem; 
+    width: 100%;  
+    margin-top: -2%;
 }
 
-/* Кнопка меню для мобильной версии */
-.menu-btn {
-    display: none; /* Скрыта на ПК */
-    background: none;
-    border: none;
-    color: #D4CCB6;
-    font-size: 2rem;
-    cursor: pointer;
+
+.menu-btn,
+.mobile-menu-overlay {
+    display: none; 
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none; /* Скрытие стандартного меню на мобильной версии */
+
+
+    .nav-menu-desktop {
+        display: none; 
     }
+    
+    body.no-scroll {
+        overflow: hidden;
+        height: 100vh;
+    }
+    
     .menu-btn {
-        display: block; /* Показать кнопку меню на мобильной версии */
+        display: block;
+        position: absolute;
+
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 999;
+    }
+    
+    .menu-btn img {
+        width: 40px;
+        height: 40px;
+        filter: drop-shadow(0 0 10px rgba(0, 173, 181, 0.8)); 
+    }
+    
+    .menu-btn.hidden {
+        display: none; 
+    }
+    
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+    
+        background: radial-gradient(circle, rgba(0, 173, 181, 0.4) 0%, rgba(0, 173, 181, 0) 70%), 
+                url('../image/neuron-pattern.svg');
+        background-color: #222831;
+        background-size: contain; 
+        background-repeat: no-repeat; 
+        background-position: center;  
+
+        background-size: cover;
+        background-position: center;
+        backdrop-filter: blur(10px);
+    
+        z-index: 998;
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .mobile-menu-overlay.active {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 100px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .menu-content {
+        text-align: left;
+        color: #D4CCB6;
+        width: 100%;
+        padding-left: 30px;  
+    }
+    
+    .menu-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    
+    .menu-list li {
+        margin-bottom: 20px;
+    }
+    
+    .menu-list li a {
+        text-decoration: none;
+        color: #D4CCB6;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        text-shadow: 0 0 15px rgba(0, 173, 181, 0.8); 
+    }
+    
+    .bot-btn {
+        background-color: #D4CCB6;
+        color: #222831;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 2px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 0 20px rgba(212, 204, 182, 0.8);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .bot-btn:hover {
+        background-color: #ffffff;
+        box-shadow: 0 0 25px rgba(212, 204, 182, 1);
+        transform: scale(1.05);
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #D4CCB6;
+    }
+    
+
+}
+
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: 2.5rem;
+        letter-spacing: 2px; 
+        line-height: 1.2; 
+        text-align: center; 
+    }
+
+    .btn-glow {
+        display: block;        
+        margin: 0 auto;   
+        margin-top: 19%;    
+        padding: 5px 40px;     
+        font-size: 0.5rem;       
+        border-radius: 5px;   
+        max-width: 200px;      
+    }
+
+    .btn-glow:hover {
+        font-size: 0.6rem;  
+
+       
+    }
+    
+    
+    .btn-glow:hover {
+        font-weight: 200;  
+    }
+
+    .step-row {
+        text-align: center; 
+        margin-bottom: 5px;
+    }
+
+    .step-indent {
+        padding-left: 35px; 
+    }
+    
+    .step-indent-large {
+        padding-left: 90px; 
+    }
+    
+    .heading{
+        font-size: 1.8rem;
+    }
+    .red-letter {
+        font-size: 1.8rem; 
+        color: #E5533D; 
+        text-shadow: 
+            0 0 10px rgba(231, 76, 60, 0.8),  
+            0 2px 2px rgba(0, 173, 181, 0.3); 
+    }
+
+    .new-text {
+        font-size: 0.9rem;
+    }
+    .subtext {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .new-text-content {
+        font-size: 1rem; 
+        text-align: center;
+        margin-bottom: 10px;
     }
 }
 
-/* Мобильное меню */
-.mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: radial-gradient(circle, rgba(0, 173, 181, 0.6) 0%, rgba(0, 173, 181, 0) 70%);
-    background-image: url('neuron-pattern.png'); /* Добавляем картинку с нейронами */
-    background-size: cover;
-    background-position: center;
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    opacity: 0;
-    transform: translateY(-100%);
-    transition: all 0.3s ease-in-out;
+@media (max-width: 768px) {
+    .footer-links {
+        margin-top: -10%;  
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        gap: 5px;            /* Меньше отступ между ссылками */
+        font-size: 0.7rem;   /* Чуть меньше размер текста */
+    }
+
+    .footer-links a {
+        width: 100%; 
+        text-align: center;
+        padding: 5px 0;      /* Уменьшен отступ */
+        border-bottom: none;  /* Убрал полоски */
+    }
+
+    .footer-copyright {
+        font-size: 0.7rem;   /* Уменьшен размер текста */
+        margin-top: 20%;    /* Сдвинул вниз */
+        text-align: center;  /* Выравнивание по центру */
+        opacity: 0.8;        /* Чуть приглушенный цвет */
+    }
 }
 
-.mobile-menu-overlay.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 768px) {
+    .content-block {
+        display: flex;
+        flex-direction: column;
+        gap: 50px; 
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;   
+        align-items: center;    
+        gap: 20px;              
+        padding: 10px;         
+        border-radius: 8px;
+        width: 90%;             
+        height: 150px;         
+        margin: 0 auto;        
+    }
+
+    .card img {
+        max-width: 140px;       
+        height: auto;
+        flex-shrink: 0;        
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;            
+    }
+
+    .card h3 {
+        margin: 0;
+        font-size: 1rem;   
+    }
+
+    .card p {
+        font-size: 0.8rem;    
+        line-height: 1.3;
+        word-break:break-all;
+    }
+
 }
 
-.menu-content {
-    text-align: center;
-    color: #D4CCB6;
-    width: 80%;
-}
+@media (max-width: 768px) {
+    .referral-section {
+        position: relative;
+        margin-top: 60px;  
+        padding: 20px;      
 
-.menu-content ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-}
+        border-radius: 15px;  
 
-.menu-content li {
-    margin: 20px 0;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-}
+        overflow: hidden;  
+    }
 
-.line {
-    width: 100%;
-    height: 2px;
-    background: #D4CCB6;
-    box-shadow: 0 0 20px rgba(0, 173, 181, 1);
-    border-radius: 50px;
-    margin: 20px 0;
-}
+    .referral-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
 
-.bot-btn {
-    background-color: #D4CCB6;
-    color: #222831;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 2px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(212, 204, 182, 0.8);
-    transition: all 0.3s ease-in-out;
-}
+    .referral-title {
+        margin-top: -20%;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #D4CCB6;
+        text-shadow: 0 0 15px rgba(0, 173, 181, 0.6); 
+        margin-bottom: 10px;
+    }
 
-.bot-btn:hover {
-    background-color: #ffffff;
-    box-shadow: 0 0 25px rgba(212, 204, 182, 1);
-    transform: scale(1.05);
-}
+    .referral-left img {
+        margin-top: 40%;
+        width: 100px;  
+        height: auto;
+        filter: drop-shadow(0 0 10px rgba(0, 173, 181, 0.6));
+    }
 
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #D4CCB6;
+    .referral-right {
+        width: 100%;
+    }
+
+    .referral-content {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #D4CCB6;
+        border-radius: 10px;
+        padding: 15px;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-align: center;  
+    }
+
+    .referral-glow {
+        display: block;  
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%; 
+        height: 60%;
+        filter: blur(40px); 
+        z-index: -1; 
+    }
 }
