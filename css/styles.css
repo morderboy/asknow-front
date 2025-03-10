@@ -348,6 +348,11 @@ body {
     align-items: center;
 }
 
+.referral-img{
+    max-width: 200px;
+    max-height: 200px;
+}
+
 .referral-right {
     display: flex;
     justify-content: flex-start;  
@@ -401,7 +406,7 @@ body {
 .footer-links {
     display: flex;
     justify-content: center;    
-    gap: 5.5rem;                
+    gap: 5 .5rem;                
     margin-bottom: 15px;       
     font-size: 0.9rem;          
 }
@@ -423,4 +428,113 @@ body {
     color: #E16351;             
     font-size: 0.8rem;          
     text-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: transparent;
+    color: #D4CCB6;
+}
+
+/* Кнопка меню для мобильной версии */
+.menu-btn {
+    display: none; /* Скрыта на ПК */
+    background: none;
+    border: none;
+    color: #D4CCB6;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Скрытие стандартного меню на мобильной версии */
+    }
+    .menu-btn {
+        display: block; /* Показать кнопку меню на мобильной версии */
+    }
+}
+
+/* Мобильное меню */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(0, 173, 181, 0.6) 0%, rgba(0, 173, 181, 0) 70%);
+    background-image: url('neuron-pattern.png'); /* Добавляем картинку с нейронами */
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-menu-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-content {
+    text-align: center;
+    color: #D4CCB6;
+    width: 80%;
+}
+
+.menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.menu-content li {
+    margin: 20px 0;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background: #D4CCB6;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 1);
+    border-radius: 50px;
+    margin: 20px 0;
+}
+
+.bot-btn {
+    background-color: #D4CCB6;
+    color: #222831;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(212, 204, 182, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+.bot-btn:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 25px rgba(212, 204, 182, 1);
+    transform: scale(1.05);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #D4CCB6;
 }

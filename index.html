@@ -10,27 +10,50 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/styles.css">
+
+    <script>
+         function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    </script>
+    
 </head>
 <body>
 
-    <!-- Шапка -->
-    <nav class="navbar custom-navbar">
-        <div class="container-fluid d-flex align-items-center position-relative">
+<!-- Шапка -->
+<nav class="navbar custom-navbar">
+    <div class="container-fluid d-flex align-items-center position-relative">
+        <a class="navbar-brand text-light fw-bold ms-3" href="#">AskNow</a>
 
-            <!-- Логотип слева -->
-            <a class="navbar-brand text-light fw-bold ms-3" href="#">AskNow</a>
-
-            <!-- Ссылки по центру -->
-            <div class="position-absolute start-50 translate-middle-x">
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link text-custom glow-effect" href="#">ГЛАВНАЯ</a></li>
-                    <li class="nav-item"><a class="nav-link text-custom glow-effect" href="#">СООБЩЕСТВО</a></li>
-                    <li class="nav-item"><a class="nav-link text-custom glow-effect" href="#">РЕФЕРАЛЬНАЯ ПРОГРАММА</a></li>
-                    <li class="nav-item"><a class="nav-link text-custom glow-effect" href="#">ИНСТРУКЦИЯ</a></li>
-                </ul>
-            </div>
+        <div class="position-absolute start-50 translate-middle-x nav-menu">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-custom glow-effect" href="#">ГЛАВНАЯ</a></li>
+                <li class="nav-item"><a class="nav-link text-custom glow-effect" href="#">СООБЩЕСТВО</a></li>
+                <li class="nav-item"><a class="nav-link text-custom glow-effect" href="#">РЕФЕРАЛЬНАЯ ПРОГРАММА</a></li>
+                <li class="nav-item"><a class="nav-link text-custom glow-effect" href="#">ИНСТРУКЦИЯ</a></li>
+            </ul>
         </div>
-    </nav>
+
+        <!-- Кнопка меню для мобильных устройств -->
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+</nav>
+
+<!-- Мобильное меню -->
+<div class="mobile-menu-overlay" id="menuOverlay">
+    <div class="menu-content">
+        <span class="close-btn" onclick="toggleMenu()">&#10006;</span>
+        <ul>
+            <li>ГЛАВНАЯ</li>
+            <li>СООБЩЕСТВО</li>
+            <li>РЕФЕРАЛЬНАЯ ПРОГРАММА</li>
+            <li>ИНСТРУКЦИЯ</li>
+        </ul>
+        <div class="line"></div>
+        <button class="bot-btn">ПЕРЕЙТИ К БОТУ</button>
+    </div>
+</div>
 
 
      <!-- Контент -->
@@ -96,7 +119,8 @@
                     </div>
             
                     <div class="referral-left">
-                        <div class="referral-icon">A</div>
+                        <img class="referral-img" src="./image/ref.svg" alt="referral-img">
+
                     </div>
             
                     <div class="referral-right">
