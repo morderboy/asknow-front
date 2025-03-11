@@ -457,7 +457,6 @@ body {
     .menu-btn {
         display: block;
         position: absolute;
-
         right: 20px;
         background: none;
         border: none;
@@ -483,8 +482,7 @@ body {
         width: 100%;
         height: 100vh;
     
-        background: radial-gradient(circle, rgba(0, 173, 181, 0.4) 0%, rgba(0, 173, 181, 0) 70%), 
-                url('../image/neuron-pattern.svg');
+        background: radial-gradient(circle, rgba(0, 173, 181, 0.4) 0%, rgba(0, 173, 181, 0) 70%);
         background-color: #222831;
         background-size: contain; 
         background-repeat: no-repeat; 
@@ -513,44 +511,91 @@ body {
         text-align: left;
         color: #D4CCB6;
         width: 100%;
-        padding-left: 30px;  
+        
     }
     
     .menu-list {
         list-style: none;
         padding: 0;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
     
     .menu-list li {
-        margin-bottom: 20px;
+        margin-bottom: 10%;
+        padding-left: 10%;  
     }
     
     .menu-list li a {
         text-decoration: none;
         color: #D4CCB6;
-        font-size: 1.3rem;
+        font-size: 0.7rem;
         text-transform: uppercase;
-        text-shadow: 0 0 15px rgba(0, 173, 181, 0.8); 
+        text-shadow: 0 0 15px rgba(212, 204, 182, 0.8); 
     }
     
+    .menu-list li a:hover {
+        color: #D4CCB6; /* Яркий белый цвет при наведении */
+        text-shadow: 
+            0 0 20px rgba(212, 204, 182, 1), 
+            0 0 40px rgba(212, 204, 182, 0.9); /* Усиленное свечение */
+        transform: scale(1.05); /* Легкое увеличение */
+    }
     .bot-btn {
         background-color: #D4CCB6;
         color: #222831;
         border: none;
-        padding: 10px 30px;
-        border-radius: 2px;
+        padding: 8px 25px; 
         font-weight: bold;
+        border-radius: 2px;
+        font-size: 0.8rem;
         cursor: pointer;
-        box-shadow: 0 0 20px rgba(212, 204, 182, 0.8);
+        width: 70%; 
+        max-width: 200px; 
+        margin: 0 auto;
+        position: fixed;
+        bottom: 10%; 
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 
+        0 0 40px rgba(0, 173, 181, 1),    /* Основное свечение */
+        0 0 70px rgba(0, 173, 181, 0.9),  /* Более яркий внешний слой */
+        0 0 120px rgba(0, 173, 181, 0.7); /* Дальнее, мягкое свечение */
         transition: all 0.3s ease-in-out;
     }
     
     .bot-btn:hover {
-        background-color: #ffffff;
-        box-shadow: 0 0 25px rgba(212, 204, 182, 1);
-        transform: scale(1.05);
+        box-shadow: 
+        0 0 60px rgba(0, 173, 181, 1),  
+        0 0 100px rgba(0, 173, 181, 0.9),
+        0 0 150px rgba(0, 173, 181, 0.8);
+        transform: translateX(-50%) scale(1.1); 
     }
+    .menu-line-container {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Центрирование по центру */
+        gap: 0;  /* Убрать пробелы между элементами */
+        margin-top: 20%;
+
+    }
+    
+    .menu-line {
+        width: 70%; /* Увеличенная длина линии */
+        height: 1.5px;  
+       
+        background: #D4CCB6;  /* Цвет линии */
+        box-shadow: 0 0 15px rgba(212, 204, 182, 0.9); /* Мягкое свечение */
+    }
+    
+    .menu-circle {
+        width: 5px; 
+        height: 5px;
+        background: #D4CCB6;
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(212, 204, 182, 0.9);
+    }
+    
+    
     
     .close-btn {
         position: absolute;
@@ -574,24 +619,38 @@ body {
     }
 
     .btn-glow {
-        display: block;        
+        display: inline-block; 
+        position: relative;       
         margin: 0 auto;   
         margin-top: 19%;    
-        padding: 5px 40px;     
-        font-size: 0.5rem;       
-        border-radius: 5px;   
-        max-width: 200px;      
+        padding: 10px 50px;     
+        font-size: 0.6rem;     
+        border-radius: 3px;     
+        max-width: 250px;       
+        background-color: #D4CCB6;
+        color: #222831;
+        border: none;
+        cursor: pointer;
+        font-weight: 400; 
+        box-shadow: 0 0 30px rgba(0, 173, 181, 0.8); 
+        transition: all 0.3s ease-in-out; 
     }
-
+    
     .btn-glow:hover {
-        font-size: 0.6rem;  
-
-       
+        transform: scale(1.1);
+        font-size: 0.6rem;   
+        font-weight: bold; 
+        background-color: #D4CCB6;
+        box-shadow: 
+            0 0 50px rgba(0, 173, 181, 1), 
+            0 0 100px rgba(0, 173, 181, 0.9), 
+            0 0 150px rgba(0, 173, 181, 0.8); 
     }
     
     
+    
     .btn-glow:hover {
-        font-weight: 200;  
+        font-weight: 400;  
     }
 
     .step-row {
@@ -639,22 +698,22 @@ body {
         display: flex;
         flex-direction: column; 
         align-items: center; 
-        gap: 5px;            /* Меньше отступ между ссылками */
-        font-size: 0.7rem;   /* Чуть меньше размер текста */
+        gap: 5px;            
+        font-size: 0.7rem;   
     }
 
     .footer-links a {
         width: 100%; 
         text-align: center;
-        padding: 5px 0;      /* Уменьшен отступ */
-        border-bottom: none;  /* Убрал полоски */
+        padding: 5px 0;      
+        border-bottom: none; 
     }
 
     .footer-copyright {
-        font-size: 0.7rem;   /* Уменьшен размер текста */
-        margin-top: 20%;    /* Сдвинул вниз */
-        text-align: center;  /* Выравнивание по центру */
-        opacity: 0.8;        /* Чуть приглушенный цвет */
+        font-size: 0.7rem;   
+        margin-top: 20%;    
+        text-align: center;  
+        opacity: 0.8;        
     }
 }
 
