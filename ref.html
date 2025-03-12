@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AskNow</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <script>
+ 
+ function toggleMenu() {
+    const body = document.body;
+    const menuOverlay = document.querySelector('.mobile-menu-overlay');
+    const menuButton = document.querySelector('.menu-btn');
+
+    menuOverlay.classList.toggle('active');
+    menuButton.classList.toggle('hidden');
+    body.classList.toggle('no-scroll');
+}
+
+</script>
+
+    
+
+</head>
+<body>
+    <div class="neuron-container">
+
+    <div class="neuron-point point-1"></div>
+    <div class="neuron-point point-2"></div>
+    <div class="neuron-point point-3"></div>
+    <div class="neuron-point point-4"></div>
+    <div class="neuron-point point-5"></div>
+
+    <div class="neuron-point small-point-1"></div>
+    <div class="neuron-point small-point-2"></div>
+    <div class="neuron-point small-point-3"></div>
+    <div class="neuron-point small-point-4"></div>
+    <div class="neuron-point small-point-5"></div>
+    <div class="neuron-point small-point-6"></div>
+    <div class="neuron-point small-point-7"></div>
+    <div class="neuron-point small-point-8"></div>
+    <div class="neuron-point small-point-9"></div>
+    <div class="neuron-point small-point-10"></div>
+</div>
+
+    <nav class="navbar custom-navbar">
+        <div class="container-fluid d-flex align-items-center position-relative">
+            <a class="navbar-brand text-light fw-bold ms-3" href="#">AskNow</a>
+
+            <div class="nav-menu-desktop">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-custom glow-effect" href="index.html">ГЛАВНАЯ</a></li>
+                    <li class="nav-item"><a class="nav-link text-custom glow-effect" href="polit.html">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a></li>
+                    <li class="nav-item"><a class="nav-link text-custom glow-effect" href="ref.html">РЕФЕРАЛЬНАЯ ПРОГРАММА</a></li>
+                    <li class="nav-item"><a class="nav-link text-custom glow-effect" href="https://t.me/more_ask_now/54">ИНСТРУКЦИЯ</a></li>
+                </ul>
+            </div>
+
+            <button class="menu-btn" onclick="toggleMenu()">
+                <img src="./image/Icon_menu.svg" alt="Меню">
+            </button>
+            
+            <div class="mobile-menu-overlay">
+                <div class="menu-content">
+                    <span class="close-btn" onclick="toggleMenu()">✕</span>
+                    <ul class="menu-list">
+                        <li><a href="index.html">ГЛАВНАЯ</a></li>
+                        <li><a href="polit.html">ПОЛИТИКА КОНФЕДЕНЦИАЛЬНОСТИ</a></li>
+                        <li><a href="https://t.me/more_ask_now/54">ИНСТРУКЦИЯ</a></li>
+                        <li><a href="/offer.html">ПРАВИЛА ПОЛЬЗОВАНИЯ</a></li>
+                        <li><a href="ref.html">РЕФЕРАЛЬНАЯ ПРОГРАММА</a></li>
+                    </ul>
+
+                    <div class="menu-line-container">
+                        <div class="menu-circle"></div>
+                        <div class="menu-line"></div>
+                        <div class="menu-circle"></div>
+                    </div>
+                    
+                    <a href="https://t.me/your_bot_link" class="bot-btn">ПЕРЕЙТИ К БОТУ</a>
+
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+
+    
+
+     <div class="container text-center mt-5">
+
+
+
+        <div class="content">
+            <h1 class="offer-title">РЕФЕРАЛЬНАЯ ПРОГРАММА</h1>
+            <div class="offer-text">
+                
+                <p class="offer-content">Детали программы будут опубликованы позже</p>
+
+                    <div class="offer-text">
+                                <h3 class="red-highlight">Как работает реферальная программа?</h3>
+                                <p>
+                                    Приглашайте друзей, коллег и знакомых воспользоваться нашим ботом @asknow_bot. 
+                                    За каждого нового пользователя, который зарегистрируется и оплатит подписку по вашей ссылке, 
+                                    вы получите вознаграждение в виде процента от суммы подписки.
+                                </p>
+
+                                <h3 class="red-highlight">Чем больше — тем выгоднее!</h3>
+                                <p>
+                                    Чем больше пользователей вы пригласите, тем выше станет ваш процент вознаграждения. 
+                                    Станьте активным участником программы и получайте ещё больше бонусов!
+                                </p>
+
+                                <h3 class="red-highlight">Правила и условия</h3>
+                                <p>
+                                    Полный список правил и подробности реферальной программы будут опубликованы позже. 
+                                    Следите за обновлениями в интерфейсе бота.
+                                </p>
+                                
+
+                            </div>
+                        
+                            
+            </div>   
+            <div class="line-container">
+                <div class="line"></div>
+                <div class="circle left-circle"></div>
+                <div class="circle right-circle"></div>
+            </div>
+
+                     
+            
+        </div>
+        <div class="footer">
+            <div class="footer-links">
+                <a href="index.html">Главная</a>
+                <a href="offer.html">Правила пользования</a>
+                <a href="https://t.me/more_ask_now/54">Инструкция</a>
+                <a href="FAQ.html">FAQ</a>
+                <a href="polit.html">Политика конфиденциальности</a>
+                <a href="ref.html">Реферальная программа</a>
+            </div>
+            <div class="footer-copyright">
+                ASKNOW
+            </div>
+        </div>
+
+
+
+        
+
+
+    </div>
+
+        
+    
+
+
+</body>
+</html>
