@@ -760,12 +760,13 @@ a.bot-btn, a.btn-glow {
 
     .card h3 {
         margin: 0;
-        font-size: 0.8rem;  
+        top: -1%;
+        font-size: 0.7rem;  
         flex-shrink: 0;       
     }
 
     .card p {
-        font-size: 0.8rem;    
+        font-size: 0.6rem;    
         line-height: 1.3;
         word-break:break-all;
         flex-shrink: 0;      
