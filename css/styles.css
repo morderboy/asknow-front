@@ -8,7 +8,17 @@ body {
 
 .navbar-brand {
     color: #D4CCB6 !important; 
+    display: inline-block;  
+    text-decoration: none;         /* Убирает подчеркивание */
+    padding: 10px 20px;            /* Увеличивает зону клика */
+    cursor: pointer;               /* Убедитесь, что курсор становится указателем */
+    transition: color 0.3s ease, text-shadow 0.3s ease; 
 
+}
+
+.navbar-brand:hover {
+    color: #FFFFFF !important;     /* Белый цвет текста при наведении */
+    text-shadow: 0 0 15px rgba(212, 204, 182, 0.9); /* Эффект свечения */
 }
 
 .text-custom {
@@ -413,9 +423,10 @@ a.bot-btn, a.btn-glow {
 .footer-links {
     display: flex;
     justify-content: center;    
-    gap: 5.5rem;              
+    gap: 7.5rem;              
     margin-bottom: 15px;        
-    font-size: 0.9rem;          
+    font-size: 0.9rem;  
+    padding-bottom: 2%;        
 }
 
 .footer-links a {
@@ -709,6 +720,7 @@ a.bot-btn, a.btn-glow {
         align-items: center; 
         gap: 5px;            
         font-size: 0.7rem;   
+        margin-bottom: 10%;
     }
 
     .footer-links a {
@@ -896,7 +908,7 @@ a.bot-btn, a.btn-glow {
     text-shadow: 0 0 20px #D4CCB6; 
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 15%;
+    margin-bottom: 10%;
 
 }
 
@@ -967,9 +979,25 @@ a.bot-btn, a.btn-glow {
 
 .link-highlight:hover {
     text-decoration: underline;
-    color: #00FFF5;
+    color: #D4CCB6;
 }
 
+.link-highlight {
+    color: inherit;               
+    text-decoration: none;        
+    cursor: default;     
+    color: #D4CCB6;    
+    pointer-events: none;      
+}
+
+.link-highlight:hover,
+.link-highlight:focus,
+.link-highlight:active {
+    text-decoration: none;   
+    color: inherit;     
+    pointer-events: none;   
+    cursor: default;       
+}
 
 @media (max-width: 768px) {
     .content {
