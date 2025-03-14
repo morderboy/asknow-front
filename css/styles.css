@@ -179,7 +179,7 @@ a.bot-btn, a.btn-glow {
 .line {
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 1px;
     background: #D4CCB6;
     box-shadow: 0 0 20px rgba(0, 173, 181, 1);
     border-radius: 50px;
@@ -601,7 +601,7 @@ a.bot-btn, a.btn-glow {
     
     .menu-line {
         width: 70%; 
-        height: 1.5px;  
+        height: 1px;  
        
         background: #D4CCB6;  
         box-shadow: 0 0 15px rgba(212, 204, 182, 0.9); 
@@ -986,16 +986,14 @@ a.bot-btn, a.btn-glow {
     color: inherit;               
     text-decoration: none;        
     cursor: default;     
-    color: #D4CCB6;    
-    pointer-events: none;      
+    color: #D4CCB6;         
 }
 
 .link-highlight:hover,
 .link-highlight:focus,
 .link-highlight:active {
     text-decoration: none;   
-    color: inherit;     
-    pointer-events: none;   
+    color: inherit;       
     cursor: default;       
 }
 
