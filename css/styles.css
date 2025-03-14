@@ -9,12 +9,13 @@ body {
 .navbar-brand {
     color: #D4CCB6 !important; 
     display: inline-block;  
-    text-decoration: none;         /* Убирает подчеркивание */
-    padding: 10px 20px;            /* Увеличивает зону клика */
-    cursor: pointer;               /* Убедитесь, что курсор становится указателем */
+    text-decoration: none;        
+    padding: 10px 20px;          
+    cursor: pointer;              
     transition: color 0.3s ease, text-shadow 0.3s ease; 
 
 }
+
 
 .navbar-brand:hover {
     color: #FFFFFF !important;     /* Белый цвет текста при наведении */
@@ -423,11 +424,47 @@ a.bot-btn, a.btn-glow {
 .footer-links {
     display: flex;
     justify-content: center;    
-    gap: 7.5rem;              
-    margin-bottom: 15px;        
+    gap: 12.5rem;              
+    margin-bottom: 10px;        
     font-size: 0.9rem;  
     padding-bottom: 2%;        
 }
+
+.footer-icon {
+    width: 80px;           
+    margin-right: 8px;       
+}
+
+.footer-icon:nth-child(4),  
+.footer-icon:nth-child(5) {
+    width: 100px;          
+}
+
+
+
+
+.footer-links-img {
+    display: flex;
+    justify-content: center;    
+    gap: 7.5rem;              
+    margin-top: 6%;        
+    font-size: 0.9rem; 
+    margin-bottom: 5%;       
+}
+
+.footer-icon {
+    width: 80px;           
+    margin-right: 8px;       
+}
+
+.footer-icon:nth-child(4),  
+.footer-icon:nth-child(5) {
+    width: 100px;          
+}
+
+
+
+
 
 .footer-links a {
     color: #D4CCB6;             
@@ -463,6 +500,16 @@ a.bot-btn, a.btn-glow {
 }
 
 @media (max-width: 768px) {
+
+    .footer-icon {
+        width: 40px;           
+        margin-right: 8px;       
+    }
+    
+    .footer-icon:nth-child(4),  
+    .footer-icon:nth-child(5) {
+        width: 70px;          
+    }
 
 
     .nav-menu-desktop {
@@ -723,6 +770,17 @@ a.bot-btn, a.btn-glow {
         margin-bottom: 10%;
     }
 
+
+    .footer-links-img {
+        margin-top: 7%;  
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        gap: 15px;            
+        font-size: 0.7rem;   
+        margin-bottom: 10%;
+    }
+
     .footer-links a {
         width: 100%; 
         text-align: center;
@@ -916,8 +974,12 @@ a.bot-btn, a.btn-glow {
     color: #D4CCB6; ;
     text-shadow: 0 0 20px #00ADB5; 
     margin-bottom: 20px;
+    text-align: right;
     
 }
+
+
+
 
 .offer-text {
     text-align: justify; 
