@@ -964,24 +964,24 @@ a.bot-btn, a.btn-glow {
                     rgba(0, 173, 181, 0.8) 50%, 
                     rgba(0, 173, 181, 0) 100%); 
 }
-
 @keyframes lineGlow {
     0% { 
         opacity: 0; 
-        filter: drop-shadow(0 0 5px rgba(0, 173, 181, 0.5));
-        filter: blur(2px);
+        transform: scale(0.5); 
+        filter: drop-shadow(0 0 5px rgba(0, 173, 181, 0.5)) blur(5px);
     }
     50% { 
-        opacity: 1; 
-        filter: drop-shadow(0 0 20px rgba(0, 173, 181, 1)); 
-        filter: blur(5px);
+        opacity: 0.9; 
+        transform: scale(1.2); 
+        filter: drop-shadow(0 0 20px rgba(0, 173, 181, 1)) blur(7px);
     }
     100% { 
         opacity: 0; 
-        filter: drop-shadow(0 0 5px rgba(0, 173, 181, 0.5)); 
-        filter: blur(2px);
+        transform: scale(0.5); 
+        filter: drop-shadow(0 0 5px rgba(0, 173, 181, 0.5)) blur(5px);
     }
 }
+
 /* Основные линии */
 .line-1 {
     top: 16%; 
@@ -1008,7 +1008,7 @@ a.bot-btn, a.btn-glow {
 }
 
 .line-4 {
-    top: 59%; 
+    top: 58%; 
     left: 0;
     width: 25%;
     height: 8px;
