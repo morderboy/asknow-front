@@ -254,6 +254,8 @@ a.bot-btn, a.btn-glow {
 
 
 .content-block {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);  
     grid-template-rows: auto auto;         
@@ -399,6 +401,8 @@ a.bot-btn, a.btn-glow {
     padding: 10px;
     line-height: 1.9;
 }
+
+
 .referral-glow {
     position: absolute;
     top: 50%;  
@@ -410,7 +414,21 @@ a.bot-btn, a.btn-glow {
     filter: blur(150px);
     z-index: 0; 
     margin-bottom: 70%;  
-    animation: glowPulse 6s infinite alternate ease-in-out; 
+    animation: glowPulse 10s infinite alternate ease-in-out; 
+}
+
+.referral-glow-1 {
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    transform: translateX(-50%) scale(1); 
+    width: 100%;
+    height: 150px;
+    background: radial-gradient(circle, rgba(0, 173, 181, 0.6) 0%, rgba(0, 173, 181, 0) 70%);
+    filter: blur(150px);
+    z-index: 0; 
+    margin-bottom: 70%;  
+    animation: glowPulse 10s infinite alternate ease-in-out; 
 }
 
 @keyframes glowPulse {
@@ -786,7 +804,7 @@ a.bot-btn, a.btn-glow {
         font-size: 1rem; 
         text-align: center;
         margin-bottom: 10px;
-        box-shadow: 0 0 15px rgba(212, 204, 182, 0.7);
+        text-shadow: 0 0 15px rgba(212, 204, 182, 0.5);
         font-weight: bold;
     }
 }
@@ -943,13 +961,26 @@ a.bot-btn, a.btn-glow {
     .referral-glow {
         display: block;  
         position: absolute;
-        top: 60%;
+        top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 60%; 
         height: 60%;
         filter: blur(40px); 
         z-index: -1; 
+    }
+
+
+    .referral-glow-1 {
+        position: absolute;
+        top: -30%;  
+        left: 50%;
+        transform: translateX(-50%, -10%); 
+        filter: blur(50px);
+        width: 60%; 
+        height: 160%;
+        z-index: -1; 
+        background: radial-gradient(circle, rgba(0, 173, 181, 0.4) 0%, rgba(0, 173, 181, 0) 70%);
     }
 }
 
