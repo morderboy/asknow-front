@@ -256,7 +256,7 @@ a.bot-btn, a.btn-glow {
     display: grid;
     grid-template-columns: repeat(3, 1fr);  
     grid-template-rows: auto auto;         
-    grid-gap: 80px 150px;              
+    grid-gap: 80px 100px;              
     max-width: 1500px;
     margin: 0 auto;
     margin-top: 40px;
@@ -264,31 +264,34 @@ a.bot-btn, a.btn-glow {
 }
 
 .card {
-    background-color: #D4CCB6;
     border-radius: 8px;
-    box-shadow: 0 4px 41px rgba(0, 0, 0, 1);
     text-align: center;
-    padding: 10px;
-    width: 310px; 
+    padding: 20px;
+    width: 360px; 
     height: 300px; 
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 4px 60px rgba(212, 204, 182, 0.4);
     justify-content: space-between;
+    background-color: transparent; 
+    border: none;
 }
+
 
 .card:nth-child(1) {
     grid-column: 1;
     grid-row: 1;
+    margin-bottom: 7%;
 }
 
 .card:nth-child(2) {
     grid-column: 2;
     grid-row: 1;
+    margin-bottom: 7%;
 }
 
 .card:nth-child(3) {
     grid-column: 3;
     grid-row: 1;
+    margin-bottom: 7%;
 }
 
 .card:nth-child(4) {
@@ -303,30 +306,32 @@ a.bot-btn, a.btn-glow {
 
 .card:hover {
     transform: scale(1.04);
-    box-shadow: 0 4px 60px rgba(212, 204, 182, 0.8);
 }
 
 .card img {
     max-width: 150px;          
     max-height: 150px;
-    margin-bottom: 0;       
-    margin-top: -5px;        
+    margin-bottom: 10%;       
+    margin-top: 0;        
     display: block;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .card h3 {
-    font-size: 1.1rem; 
-    color: #222831;
+    font-size: 1.4rem; 
+    color: #D4CCB6;
+    text-shadow: 0 0 15px rgba(212, 204, 182, 0.5);
     font-weight: bold;
     margin-bottom: 10px;
     flex-shrink: 0;      
 }
 
 .card p {
-    font-size: 0.8rem;
-    color: #222831;
+    font-size: 1.0rem;
+    text-shadow: 0 0 15px rgba(212, 204, 182, 0.5);
+    color: #D4CCB6;
     line-height: 1.5;
     flex-shrink: 0;      
 }
@@ -357,12 +362,13 @@ a.bot-btn, a.btn-glow {
     width: 90%;
     padding: 40px;
     position: relative;
-    gap: 300px;  
+    gap: 200px;  
     z-index: 2;
+    margin-bottom: -5%;
 }
 
 .referral-left {
-    margin-top: 30%;
+    margin-top: 8%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -377,15 +383,19 @@ a.bot-btn, a.btn-glow {
     display: flex;
     justify-content: flex-start;  
     align-items: center;
+    word-break:keep-all;
+    
 }
 
 .referral-content {
     color: #D4CCB6;
-    font-size: 1.2rem;
+    text-shadow: 0 0 15px rgba(212, 204, 182, 0.5);
+    font-size: 1.5rem;
     line-height: 1.6;
     max-width: 500px;
     text-align: left; 
-    padding: 30px;
+    padding: 10px;
+    line-height: 1.9;
 }
 
 .referral-glow {
@@ -424,7 +434,7 @@ a.bot-btn, a.btn-glow {
 .footer-links {
     display: flex;
     justify-content: center;    
-    gap: 6.5rem;              
+    gap: 12.5rem;              
     margin-bottom: 10px;        
     font-size: 0.9rem;  
     padding-bottom: 2%;        
@@ -446,7 +456,7 @@ a.bot-btn, a.btn-glow {
 .footer-links-img {
     display: flex;
     justify-content: center;    
-    gap: 4.5rem;              
+    gap: 7.5rem;              
     margin-top: 6%;        
     font-size: 0.9rem; 
     margin-bottom: 5%;       
@@ -807,16 +817,30 @@ a.bot-btn, a.btn-glow {
         display: flex;
         flex-direction: row;   
         align-items: center;    
-        gap: 20px;              
+        gap: 40px;              
         padding: 10px;         
         border-radius: 8px;
         width: 90%;             
-        height: 170px;         
-        margin: 0 auto;        
+        height: 100px;  
+        margin-left: 3%;       
+
+    }
+
+    
+    .card:nth-child(1) {
+        margin-bottom: 0;
+    }
+
+    .card:nth-child(2) {
+        margin-bottom: 0;
+    }
+
+    .card:nth-child(3) {
+        margin-bottom: 0;
     }
 
     .card img {
-        max-width: 140px;       
+        width: 70px;     
         height: auto;
         flex-shrink: 0;        
     }
@@ -1134,10 +1158,9 @@ a.bot-btn, a.btn-glow {
 .red-question {
     font-size: 1.0rem;
     color: #D4CCB6;              
-    text-shadow: 0 0 15px rgba(231, 76, 60, 0.8); 
+    text-shadow: 0 0 15px rgba(212, 204, 182, 0.2); 
     font-weight: bold;            
 }
-
 
 .bold-text {
     font-size: 1.0rem;             
