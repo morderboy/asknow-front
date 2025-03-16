@@ -1016,7 +1016,29 @@ html, body {
         left: 50%;
         transform: translateX(-50%, -10%); 
         filter: blur(50px);
-        width: 60%; 
+        width: 40%; 
+        height: 160%;
+        z-index: -1; 
+        background: radial-gradient(circle, rgba(0, 173, 181, 0.4) 0%, rgba(0, 173, 181, 0) 70%);
+    }
+
+    .referral-glow-2 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%, -10%); 
+        filter: blur(50px);
+        width: 40%; 
+        height: 160%;
+        z-index: -1; 
+        background: radial-gradient(circle, rgba(0, 173, 181, 0.4) 0%, rgba(0, 173, 181, 0) 70%);
+    }
+
+    .referral-glow-3 {
+        position: absolute;  
+        left: 50%;
+        transform: translateX(-50%, -10%); 
+        filter: blur(70px);
+        width: 20%; 
         height: 160%;
         z-index: -1; 
         background: radial-gradient(circle, rgba(0, 173, 181, 0.4) 0%, rgba(0, 173, 181, 0) 70%);
