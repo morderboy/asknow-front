@@ -152,14 +152,12 @@
 
         // Загрузка файла на сервер
         async function uploadFile(file, fileId) {
-            const formData = new FormData();
-            formData.append('file', file);
 
             const response = await fetch('/bot-app/upload', {
                 method: 'POST',
-                body: formData,
+                body: file,
                 headers: {
-                    'Filename': encodeURIComponent(file.name) // ✅ Передаём имя в заголовке
+                    'filename': encodeURIComponent(file.name) // ✅ Передаём имя в заголовке
                 }
             });
 
