@@ -196,8 +196,7 @@
             if (uploadedFiles.length === 0) return;
 
             const payload = {
-                method: "sendFiles",
-                data: uploadedFiles
+                uploaded_files: uploadedFiles
             };
 
             try {
