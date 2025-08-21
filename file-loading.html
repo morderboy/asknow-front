@@ -5,89 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AskNow — Загрузка файлов</title>
 
-    <!-- Bootstrap 5 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Убираем Bootstrap — он ломает тему Telegram -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
+    
     <!-- Иконка -->
     <link rel="icon" href="./image/icon.png" type="image/x-icon">
-    <!-- Локальные стили -->
-    <link rel="stylesheet" href="./css/styles.css">
 
     <style>
-        body {
-            background-color: #f8f9fa;
-            padding: 20px;
-            font-family: 'Segoe UI', sans-serif;
+        /* Сброс базовых стилей — подстраиваемся под Telegram */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .drop-zone {
-            border: 3px dashed #0d6efd;
-            border-radius: 12px;
-            padding: 40px;
+        body {
+            /* Цвета из темы Telegram */
+            background-color: var(--tg-theme-bg-color, #ffffff);
+            color: var(--tg-theme-text-color, #000000);
+            font-family: var(--tg-font, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+            padding: 16px;
+            min-height: 100vh;
+        }
+
+        /* Контейнер с отступами как в Telegram */
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--tg-theme-text-color, #000000);
             text-align: center;
-            background-color: #e7f3ff;
-            color: #0d6efd;
+        }
+
+        /* Зона перетаскивания — стили под Telegram */
+        .drop-zone {
+            border: 2px dashed var(--tg-theme-hint-color, #999999);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--tg-theme-hint-color, #999999);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s ease;
             margin-bottom: 20px;
+            background-color: var(--tg-theme-secondary-bg-color, #f0f0f0);
         }
 
         .drop-zone:hover {
-            background-color: #d0e8ff;
-            border-color: #0b5ed7;
+            border-color: var(--tg-theme-link-color, #0088cc);
         }
 
         .drop-zone.dragover {
-            background-color: #c0e4ff;
-            border-color: #0a58ca;
+            border-color: var(--tg-theme-link-color, #0088cc);
+            background-color: var(--tg-theme-secondary-bg-color, #e0e0e0);
         }
 
         .drop-zone-text {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
+        .drop-zone small {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Список файлов */
         .file-list {
             margin-top: 20px;
             max-height: 300px;
             overflow-y: auto;
+            border-radius: 12px;
         }
 
         .file-item {
-            padding: 10px;
-            background: #fff;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 12px 16px;
+            background: var(--tg-theme-secondary-bg-color, #f0f0f0);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: var(--tg-theme-text-color, #000000);
         }
 
-        .file-item .spinner-border {
-            width: 1rem;
-            height: 1rem;
+        .file-item .status {
+            font-size: 12px;
+            color: var(--tg-theme-hint-color, #999);
         }
 
+        /* Кнопка — как в Telegram */
         .btn-upload {
             margin-top: 20px;
+            padding: 14px;
+            background-color: var(--tg-theme-button-color, #0088cc);
+            color: var(--tg-theme-button-text-color, #ffffff);
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 500;
+            width: 100%;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        .btn-upload:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-upload:not(:disabled):active {
+            opacity: 0.8;
+        }
+
+        /* Скрыть input */
+        #fileInput {
+            display: none;
+        }
+
+        /* Стилизация скролла (опционально, под тему) */
+        .file-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .file-list::-webkit-scrollbar-thumb {
+            background: var(--tg-theme-hint-color, #ccc);
+            border-radius: 3px;
+        }
+
+        .file-list::-webkit-scrollbar-track {
+            background: transparent;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2 class="text-center mb-4">Загрузите файлы</h2>
+        <h2>Загрузите файлы</h2>
 
         <div id="dropZone" class="drop-zone">
             <p class="drop-zone-text">Перетащите файлы сюда или кликните для выбора</p>
-            <small class="text-muted">Поддерживаются любые типы файлов</small>
+            <small>Поддерживаются любые типы файлов</small>
         </div>
 
         <input type="file" id="fileInput" multiple style="display: none;">
 
         <div class="file-list" id="fileList"></div>
 
-        <button id="submitBtn" class="btn btn-success btn-upload w-100" disabled>
+        <button id="submitBtn" class="btn-upload" disabled>
             Отправить в Telegram
         </button>
     </div>
@@ -100,26 +172,44 @@
         const tg = window.Telegram?.WebApp;
         tg.ready();
 
+        // Применяем тему к CSS-переменным
+        function applyTheme() {
+            const theme = tg.themeParams;
+            const root = document.documentElement;
+
+            root.style.setProperty('--tg-theme-bg-color', theme.bg_color || '#ffffff');
+            root.style.setProperty('--tg-theme-text-color', theme.text_color || '#000000');
+            root.style.setProperty('--tg-theme-hint-color', theme.hint_color || '#999999');
+            root.style.setProperty('--tg-theme-link-color', theme.link_color || '#0088cc');
+            root.style.setProperty('--tg-theme-button-color', theme.button_color || '#0088cc');
+            root.style.setProperty('--tg-theme-button-text-color', theme.button_text_color || '#ffffff');
+            root.style.setProperty('--tg-theme-secondary-bg-color', theme.secondary_bg_color || '#f0f0f0');
+            root.style.setProperty('--tg-font', theme.font_family ? `${theme.font_family}, sans-serif` : 'sans-serif');
+        }
+
+        applyTheme();
+        tg.onEvent('themeChanged', applyTheme); // Обновляем при смене темы
+
+        // Элементы
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
         const fileList = document.getElementById('fileList');
         const submitBtn = document.getElementById('submitBtn');
 
-        let uploadedFiles = []; // Массив с результатами загрузки
+        let uploadedFiles = [];
 
-        // Открытие диалога выбора файлов при клике
+        // Открытие диалога выбора
         dropZone.addEventListener('click', () => {
             fileInput.click();
         });
 
-        // Добавление файлов (через клик или drag&drop)
+        // Добавление файлов
         function handleFiles(files) {
             Array.from(files).forEach(file => {
                 addFileItem(file);
             });
         }
 
-        // Добавление элемента файла в список
         function addFileItem(file) {
             const fileId = Date.now() + Math.random().toString(36).substr(2, 9);
             const li = document.createElement('div');
@@ -127,53 +217,45 @@
             li.id = `file-item-${fileId}`;
             li.innerHTML = `
                 <span>${file.name}</span>
-                <div><div class="spinner-border spinner-border-sm text-primary" role="status"></div></div>
+                <span class="status">загрузка...</span>
             `;
             fileList.appendChild(li);
 
             uploadFile(file, fileId)
                 .then(responseData => {
-                    // Обновляем элемент интерфейса
-                    li.querySelector('.spinner-border').remove();
-                    li.querySelector('span').textContent += ' — ✅';
-                    uploadedFiles.push(responseData); // Сохраняем ответ от сервера
+                    li.querySelector('.status').textContent = '✅';
+                    uploadedFiles.push(responseData);
 
-                    // Если все файлы загружены — разблокировать кнопку
                     if (uploadedFiles.length === document.querySelectorAll('.file-item').length) {
                         submitBtn.disabled = false;
                     }
                 })
                 .catch(err => {
-                    li.querySelector('.spinner-border').remove();
-                    li.querySelector('span').textContent += ' — ❌';
+                    li.querySelector('.status').textContent = '❌';
                     console.error('Ошибка загрузки:', err);
                 });
         }
 
-        // Загрузка файла на сервер
         async function uploadFile(file, fileId) {
-
             const response = await fetch('/bot-app/upload', {
                 method: 'POST',
                 body: file,
                 headers: {
-                    'filename': encodeURIComponent(file.name) // ✅ Передаём имя в заголовке
+                    'filename': encodeURIComponent(file.name)
                 }
             });
 
             if (!response.ok) {
-                throw new Error(`Ошибка сервера: ${response.status}`);
+                throw new Error(`Ошибка: ${response.status}`);
             }
 
-            return await response.json(); // Предполагаем, что сервер возвращает JSON
+            return await response.json();
         }
 
-        // Обработка выбора файлов через input
         fileInput.addEventListener('change', (e) => {
             handleFiles(e.target.files);
         });
 
-        // Drag & Drop события
         dropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
             dropZone.classList.add('dragover');
@@ -189,18 +271,14 @@
             handleFiles(e.dataTransfer.files);
         });
 
-        // Кнопка отправки в Telegram
         submitBtn.addEventListener('click', () => {
             if (uploadedFiles.length === 0) return;
 
-            const payload = {
-                uploaded_files: uploadedFiles
-            };
-
+            const payload = { uploaded_files: uploadedFiles };
             try {
-                tg.sendData(JSON.stringify(payload)); // Отправляем данные в Telegram
+                tg.sendData(JSON.stringify(payload));
             } catch (err) {
-                console.error("Не удалось отправить данные в Telegram:", err);
+                console.error("Ошибка отправки:", err);
             }
         });
     </script>
