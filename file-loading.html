@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AskNow — Загрузка файлов</title>
 
-    <!-- Убираем Bootstrap — он ломает тему Telegram -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
-    
     <!-- Иконка -->
     <link rel="icon" href="./image/icon.png" type="image/x-icon">
 
@@ -28,7 +25,6 @@
             min-height: 100vh;
         }
 
-        /* Контейнер с отступами как в Telegram */
         .container {
             max-width: 100%;
             margin: 0 auto;
@@ -42,7 +38,7 @@
             text-align: center;
         }
 
-        /* Зона перетаскивания — стили под Telegram */
+        /* Зона перетаскивания */
         .drop-zone {
             border: 2px dashed var(--tg-theme-hint-color, #999999);
             border-radius: 12px;
@@ -95,12 +91,37 @@
             color: var(--tg-theme-text-color, #000000);
         }
 
+        .file-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .file-delete {
+            background: none;
+            border: none;
+            color: #ff3b30;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .file-delete:hover {
+            opacity: 0.8;
+        }
+
         .file-item .status {
             font-size: 12px;
             color: var(--tg-theme-hint-color, #999);
+            margin-right: 8px;
         }
 
-        /* Кнопка — как в Telegram */
+        /* Кнопка */
         .btn-upload {
             margin-top: 20px;
             padding: 14px;
@@ -125,12 +146,11 @@
             opacity: 0.8;
         }
 
-        /* Скрыть input */
         #fileInput {
             display: none;
         }
 
-        /* Стилизация скролла (опционально, под тему) */
+        /* Стилизация скролла */
         .file-list::-webkit-scrollbar {
             width: 6px;
         }
@@ -155,7 +175,7 @@
             <small>Поддерживаются любые типы файлов</small>
         </div>
 
-        <input type="file" id="fileInput" multiple style="display: none;">
+        <input type="file" id="fileInput" multiple>
 
         <div class="file-list" id="fileList"></div>
 
@@ -164,15 +184,13 @@
         </button>
     </div>
 
-    <!-- Подключаем Telegram WebApp SDK -->
+    <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <script>
-        // Инициализация WebApp
         const tg = window.Telegram?.WebApp;
         tg.ready();
 
-        // Применяем тему к CSS-переменным
         function applyTheme() {
             const theme = tg.themeParams;
             const root = document.documentElement;
@@ -188,9 +206,8 @@
         }
 
         applyTheme();
-        tg.onEvent('themeChanged', applyTheme); // Обновляем при смене темы
+        tg.onEvent('themeChanged', applyTheme);
 
-        // Элементы
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
         const fileList = document.getElementById('fileList');
@@ -198,12 +215,10 @@
 
         let uploadedFiles = [];
 
-        // Открытие диалога выбора
         dropZone.addEventListener('click', () => {
             fileInput.click();
         });
 
-        // Добавление файлов
         function handleFiles(files) {
             Array.from(files).forEach(file => {
                 addFileItem(file);
@@ -215,23 +230,35 @@
             const li = document.createElement('div');
             li.className = 'file-item';
             li.id = `file-item-${fileId}`;
-            li.innerHTML = `
-                <span>${file.name}</span>
-                <span class="status">загрузка...</span>
-            `;
+
+            const statusSpan = document.createElement('span');
+            statusSpan.className = 'status';
+            statusSpan.textContent = 'загрузка...';
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'file-delete';
+            deleteBtn.innerHTML = '❌';
+            deleteBtn.setAttribute('aria-label', 'Удалить файл');
+            deleteBtn.onclick = () => removeFile(fileId);
+
+            const actions = document.createElement('div');
+            actions.className = 'file-actions';
+            actions.appendChild(statusSpan);
+            actions.appendChild(deleteBtn);
+
+            li.innerHTML = `<span>${file.name}</span>`;
+            li.appendChild(actions);
             fileList.appendChild(li);
 
             uploadFile(file, fileId)
                 .then(responseData => {
-                    li.querySelector('.status').textContent = '✅';
-                    uploadedFiles.push(responseData);
+                    statusSpan.textContent = '✅';
+                    uploadedFiles.push({ id: fileId, data: responseData });
 
-                    if (uploadedFiles.length === document.querySelectorAll('.file-item').length) {
-                        submitBtn.disabled = false;
-                    }
+                    checkSubmitButton();
                 })
                 .catch(err => {
-                    li.querySelector('.status').textContent = '❌';
+                    statusSpan.textContent = '❌';
                     console.error('Ошибка загрузки:', err);
                 });
         }
@@ -249,7 +276,30 @@
                 throw new Error(`Ошибка: ${response.status}`);
             }
 
-            return await response.json();
+            data = await response.json();
+
+            if (data.length === 0) {
+                throw new Error(`Ошибка`);
+            }
+
+            return data;
+        }
+
+        function removeFile(fileId) {
+            const element = document.getElementById(`file-item-${fileId}`);
+            if (element) {
+                element.remove();
+            }
+
+            // Удаляем из массива uploadedFiles
+            uploadedFiles = uploadedFiles.filter(f => f.id !== fileId);
+
+            // Обновляем кнопку
+            checkSubmitButton();
+        }
+
+        function checkSubmitButton() {
+            submitBtn.disabled = uploadedFiles.length === 0;
         }
 
         fileInput.addEventListener('change', (e) => {
@@ -274,7 +324,10 @@
         submitBtn.addEventListener('click', () => {
             if (uploadedFiles.length === 0) return;
 
-            const payload = { uploaded_files: uploadedFiles };
+            const payload = {
+                uploaded_files: uploadedFiles.map(f => f.data)
+            };
+
             try {
                 tg.sendData(JSON.stringify(payload));
             } catch (err) {
